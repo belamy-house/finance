@@ -78,11 +78,51 @@
       color: #777;
       font-size: 14px;
     }
+	/* Clock Style */
+    .header-bar{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #1e2d3d;
+    }
+    /* Left & Right Box  */
+    .header-left, .header-right{
+      background: rgba(255,255,255,0.08);
+      padding: 12px 14px;
+      border-radius: 80px;
+      color: #fff;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0px 40px 0px 40px;
+    }
 </style>
 </head>
 <body>
-    <!-- Company Logo -->
-    <header><img src="./image/tbh.png" alt="Belamy Logo" style="height:70px;"></header>
+<!-- Company Logo
+    <header><img src="./image/tbh.png" alt="Belamy Logo" style="height:70px;"></header> -->
+<!-- Clock -->
+<div class="header-bar">
+
+   <!-- LEFT : CLOCK -->
+   <div class="header-left">
+    <span class="icon">🕒</span>
+    <span id="clock">00:00:00</span>
+   </div>
+
+  <!-- CENTER : LOGO -->
+    <div class="header-center">
+     <img src="./image/tbh.png" alt="Belamy Logo" style="height:70px;" class="logo">
+    </div>
+
+    <!-- RIGHT : DATE -->
+    <div class="header-right">
+     <span class="icon">📅</span>
+    <span id="date"></span>
+    </div>
+
+</div>
 
     <h1>Welcome to The Belamy House Portal</h1>
     <!-- Main Button -->
@@ -91,7 +131,7 @@
         <a href="https://thebelamyhouse-my.sharepoint.com/personal/cngripon_thebelamyhouse_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fcngripon%5Fthebelamyhouse%5Fcom%2FDocuments%2FTBH%20FINANCE&ga=1" target="_blank" class="portal-btn"><i class="fa-solid fa-file-invoice"></i> FINANCE DRIVE</a>
         <!-- <a href="https://hii.hrhub.ph/AdminDashboard.aspx" target="_blank" class="portal-btn"><i class="fa-solid fa-gear"></i>Payroll</a> -->
         <a href="https://ga-app.idbtech.cloud/pms/" target="_blank" class="portal-btn"><i class="fa-solid fa-gear"></i>IDB-PMS</a>
-        <a href="https://ga-app.idbtech.cloud/acc/" target="_blank" class="portal-btn"><i class="fa-solid fa-gears"></i>IDB-ACC</a>
+        <a href="https://ga-app.idbtech.cloud/acc/" target="_blank" class="portal-btn"><i class="fa-solid fa-gears"></i>IDB-PMS</a>
 
      </div>
      <br>
@@ -112,8 +152,23 @@
         <a href="https://efps.bir.gov.ph/home.html" target="_blank" class="portal-btn"><i class="fa-solid fa-building-ngo"></i>eFPS</a>
         <a href="https://www.bancnetonline.com/egov/login.egov" target="_blank" class="portal-btn"><i class="fa-solid fa-building-ngo"></i>eGOV</a>
      </div>
+	 <!-- Script -->
+    <script>
+      function updateClock() {
+        const now =new Date();
+
+        const time = now.toLocaleTimeString();
+        const date = now.toLocaleDateString("en-US",{
+        weekly: "long",
+         month: "long",
+           day: "numeric",
+          year: "numeric"
+        });
+        document.getElementById("clock").innerText = time;
+        document.getElementById("date").innerText = date;
+      }
+      setInterval(updateClock,1000);
+      updateClock();
+    </script>
 </body>
 </html>
-
-
-
