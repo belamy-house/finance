@@ -1,0 +1,123 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:Poppins,sans-serif;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    position:relative;
+}
+/* Background */
+
+.bg{
+    position:absolute;
+    inset:0;
+    background:url("../assets/background.jpg") center center;
+    background-size:cover;
+    z-index:1;
+}
+/* Dark overlay */
+.bg-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    z-index:2;
+}
+/* Wave */
+.wave{
+    position:absolute;
+    inset:0;
+    background:url("../assets/wave-bottom.png") center center;
+    background-size:cover;
+    z-index:3;
+    pointer-events:none;
+}
+/* Header */
+header{
+    position:relative;
+    z-index:10;
+    height:75px;
+    background:#173f73;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 35px;
+    color:#e9c67c;
+}
+.header-logo img{
+    height:55px;
+}
+.header-left,
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:600;
+    min-width:220px;
+}
+.header-right{
+    justify-content:flex-end;
+}
+/* Main */
+main{
+    position:relative;
+    z-index:10;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top:20px;
+}
+
+main h1{
+    font-size:58px;
+    color:#ddb46b;
+    text-shadow:0 4px 8px rgba(0,0,0,.4);
+    margin-bottom:20px;
+}
+/* Buttons */
+.shortcut-container{
+    display:grid;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+    grid-template-columns: repeat(4, 1fr);
+}
+.shortcut{
+    width:250px;
+    height:58px;
+    background:#fff;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    text-decoration:none;
+    color:#222;
+    font-weight:600;
+    box-shadow:0 4px 10px rgba(0,0,0,.25);
+}
+/* Footer */
+footer{
+    position:absolute;
+    bottom:18px;
+    left:0;
+    width:100%;
+    padding:0 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    z-index:10;
+    color:#ddb46b;
+}
+.portal{
+    font-size:115px;
+    font-family:"Great Vibes";
+    line-height:0.8;
+    font-weight:400px;
+    color: #d8ab63;
+    letter-spacing: 5px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
