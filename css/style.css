@@ -5,10 +5,10 @@
 }
 body{
     font-family:Poppins,sans-serif;
-    width:100vw;
-    height:100vh;
-    overflow:hidden;
+    min-height:100vh;
     position:relative;
+    overflow-x:hidden;
+    overflow-y:auto;
 }
 /* Background */
 
@@ -68,7 +68,7 @@ main{
     display:flex;
     flex-direction:column;
     align-items:center;
-    margin-top:20px;
+    padding:20px 20px 160px;
 }
 
 main h1{
@@ -120,4 +120,47 @@ footer{
     color: #d8ab63;
     letter-spacing: 5px;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px){
+
+    header{
+
+        flex-direction:column;
+
+        height:auto;
+
+        padding:15px;
+
+        gap:10px;
+
+    }
+
+    .header-left,
+    .header-right{
+
+        min-width:auto;
+
+        justify-content:center;
+
+    }
+
+    .header-logo img{
+
+        height:45px;
+
+    }
+
+    footer{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+
+        gap:10px;
+
+    }
+
 }
