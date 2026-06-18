@@ -1,166 +1,218 @@
+
+/* ===========================
+   RESET
+=========================== */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
+
+html,
 body{
-    font-family:Poppins,sans-serif;
-    min-height:100vh;
-    position:relative;
+    width:100%;
+    min-height:100%;
+    font-family:"Poppins",sans-serif;
     overflow-x:hidden;
-    overflow-y:auto;
 }
-/* Background */
+
+/* ===========================
+   BACKGROUND
+=========================== */
+body{
+    position:relative;
+    background:#000;
+}
+
+.bg,
+.bg-overlay,
+.wave{
+    position:fixed;
+    inset:0;
+}
 
 .bg{
-    position:absolute;
-    inset:0;
-    background:url("../assets/background.jpg") center center;
-    background-size:cover;
-    z-index:1;
+    background:url("../assets/background.jpg") center center/cover no-repeat;
+    z-index:-3;
 }
-/* Dark overlay */
+
 .bg-overlay{
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.35);
-    z-index:2;
+    background:rgba(0,0,0,.55);
+    z-index:-2;
 }
-/* Wave */
+
 .wave{
-    position:absolute;
-    inset:0;
-    background:url("../assets/wave-bottom.png") center center;
-    background-size:cover;
-    z-index:3;
+    background:url("../assets/wave-bottom.png") bottom center/cover no-repeat;
+    z-index:-1;
     pointer-events:none;
 }
-/* Header */
+
+/* ===========================
+   HEADER
+=========================== */
 header{
-    position:relative;
-    z-index:10;
-    height:75px;
-    background:#173f73;
+
+    height:72px;
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
-    padding:0 35px;
+
+    padding:0 30px;
+
+    background:#173f73;
+
     color:#e9c67c;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
 }
-.header-logo img{
-    height:55px;
-}
+
 .header-left,
 .header-right{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-weight:600;
+
     min-width:220px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-weight:600;
 }
+
 .header-right{
+
     justify-content:flex-end;
 }
-/* Main */
+
+.header-logo img{
+
+    height:50px;
+}
+
+/* ===========================
+   MAIN
+=========================== */
 main{
     position:relative;
     z-index:10;
+
+    width:90%;
+    max-width:1200px;
+
+    margin:25px auto;
+
     display:flex;
     flex-direction:column;
     align-items:center;
-    padding:20px 20px 160px;
 }
 
+/* ===========================
+   TITLES
+=========================== */
 main h1{
     font-size:58px;
-    color:#ddb46b;
-    text-shadow:0 4px 8px rgba(0,0,0,.4);
     margin-bottom:20px;
+    color: #ddb46b;
 }
-/* Buttons */
+
+/* ===========================
+   GRID
+=========================== */
 .shortcut-container{
     display:grid;
-    gap:10px;
-    flex-wrap:wrap;
-    justify-content:center;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    width:100%;
+    margin-bottom:35px;
 }
+
+/* ===========================
+   BUTTON
+=========================== */
 .shortcut{
-    width:250px;
-    height:58px;
-    background:#fff;
+    width:100%;
+    height:60px;
     border-radius:18px;
     display:flex;
     align-items:center;
     justify-content:center;
     gap:10px;
-    text-decoration:none;
-    color:#222;
+    font-size:16px;
     font-weight:600;
-    box-shadow:0 4px 10px rgba(0,0,0,.25);
+    background:#fff;
+    box-shadow:0 4px 12px rgba(0,0,0,.2);
+    text-decoration: none;
+    color: #173f73;
+
 }
-/* Footer */
+.shortcut:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 22px rgba(0,0,0,.30);
+}
+
+.shortcut i{
+    font-size:18px;
+    flex-shrink:0;
+    text-decoration: none;
+}
+
+.shortcut span{
+    text-align:center;
+    line-height:1.2;
+    word-break:break-word;
+    text-decoration: none;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
 footer{
-    position:absolute;
-    bottom:18px;
-    left:0;
-    width:100%;
-    padding:0 28px;
+    width:min(1400px,95%);
+    margin:50px auto 20px;
     display:flex;
     justify-content:space-between;
     align-items:flex-end;
-    z-index:10;
     color:#ddb46b;
+    margin-top:30px;
+    padding:20px 30px;
 }
 .portal{
+    font-family:"Great Vibes",cursive;
+    font-size:clamp(56px,5vw,90px);
+    line-height:1;
+    letter-spacing:2px;
     font-size:115px;
-    font-family:"Great Vibes";
-    line-height:0.8;
-    font-weight:400px;
-    color: #d8ab63;
-    letter-spacing: 5px;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    opacity:.9;
 }
-
-@media (max-width: 768px){
-
-    header{
-
-        flex-direction:column;
-
-        height:auto;
-
-        padding:15px;
-
-        gap:10px;
-
+.copyright{
+    font-size:15px;
+    text-align:right;
+}
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media(max-width:1200px){
+    .shortcut-container{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+@media(max-width:900px){
+    .shortcut-container{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .header-left,
-    .header-right{
-
-        min-width:auto;
-
-        justify-content:center;
-
-    }
-
-    .header-logo img{
-
-        height:45px;
-
-    }
-
-    footer{
-
-        flex-direction:column;
-
-        align-items:center;
-
-        text-align:center;
-
-        gap:10px;
-
+}
+@media(max-width:600px){
+    .shortcut-container{
+        grid-template-columns:1fr;
     }
 
 }
